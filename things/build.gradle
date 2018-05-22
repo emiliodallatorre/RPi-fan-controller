@@ -1,0 +1,22 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "gq.emiliodallatorre.rpi_fan"
+        minSdkVersion 27
+        targetSdkVersion 27
+        versionCode 1
+        versionName "0.1 - 21 mag 2018"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compileOnly 'com.google.android.things:androidthings:1.0'
+}
