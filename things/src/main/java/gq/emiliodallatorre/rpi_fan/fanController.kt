@@ -12,9 +12,9 @@ import java.io.BufferedReader
 import java.io.FileReader
 import java.io.IOException
 
-class fanController : Activity() {
+class FanController : Activity() {
     private var mGpio: Gpio? = null
-    internal var temp: Int = 0
+    private var temp: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,7 +59,7 @@ class fanController : Activity() {
         }
     }
 
-    internal fun tempGetter(): Int {
+    private fun tempGetter(): Int {
         val br: BufferedReader
         val fr: FileReader
         try {
@@ -67,7 +67,8 @@ class fanController : Activity() {
             br = BufferedReader(fr)
             val line: String
             try {
-                if ((line = br.readLine()) != null) {
+                line = br.readLine()
+                if (line != null) {
                     return Integer.parseInt(line)
                 }
             } catch (e: java.io.IOException) {
@@ -82,7 +83,7 @@ class fanController : Activity() {
     }
 
     companion object {
-        private val GPIO_NAME = "BCM18"
-        private val TAG = "fanController"
+        private const val GPIO_NAME = "BCM18"
+        private const val TAG = "fanController"
     }
 }

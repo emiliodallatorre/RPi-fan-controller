@@ -9,7 +9,7 @@
         <uses-library android:name="com.google.android.things" />
 
         <activity
-            android:name=".fanController"
+            android:name=".FanController"
             android:label="Fan Controller">
             <intent-filter>
                 <action android:name="gq.emiliodallatorre.rpi_fan.fanController" />
@@ -20,7 +20,7 @@
         <receiver
             android:enabled="true"
             android:exported="true"
-            android:name="gq.emiliodallatorre.rpi_fan.fanService"
+            android:name="gq.emiliodallatorre.rpi_fan.FanService"
             android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
