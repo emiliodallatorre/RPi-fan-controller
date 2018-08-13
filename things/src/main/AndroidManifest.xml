@@ -13,7 +13,7 @@
             android:label="Fan Controller">
             <intent-filter>
                 <action android:name="gq.emiliodallatorre.rpi_fan.fanController" />
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.MAIN" />
             </intent-filter>
         </activity>
 

@@ -13,7 +13,7 @@ import java.io.FileReader
 import java.io.IOException
 
 class FanController : Activity() {
-    private var mGpio: Gpio? = null
+    private lateinit var mGpio: Gpio
     private var temp: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +21,7 @@ class FanController : Activity() {
         val pioService = PeripheralManager.getInstance()
         try {
             mGpio = pioService.openGpio(GPIO_NAME)
-            mGpio!!.setDirection(Gpio.DIRECTION_OUT_INITIALLY_LOW)
+            mGpio.setDirection(Gpio.DIRECTION_OUT_INITIALLY_LOW)
             Log.d(TAG, "mGpio is set to TRUE")
         } catch (e: IOException) {
             e.printStackTrace()
@@ -32,7 +32,7 @@ class FanController : Activity() {
             if (temp > 40000) {
                 try {
                     Log.d(TAG, "Temperature is above 40°C, starting fan.")
-                    mGpio!!.value = true
+                    mGpio.value = true
                     while (true) {
                         temp = tempGetter()
                         if (temp < 38000) {
@@ -41,7 +41,7 @@ class FanController : Activity() {
                         }
                         Thread.sleep(10000)
                     }
-                    mGpio!!.value = false
+                    mGpio.value = false
                 } catch (e: IOException) {
                     e.printStackTrace()
                 } catch (e: InterruptedException) {
