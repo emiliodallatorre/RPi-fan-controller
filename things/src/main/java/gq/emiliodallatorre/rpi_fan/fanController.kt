@@ -83,7 +83,7 @@ class FanController : Activity() {
     }
 
     companion object {
-        private const val GPIO_NAME = "BCM18"
+        private const val GPIO_NAME = "BCM24"
         private const val TAG = "fanController"
     }
 }
