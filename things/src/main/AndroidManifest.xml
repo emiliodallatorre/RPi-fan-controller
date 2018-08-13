@@ -9,9 +9,9 @@
         <uses-library android:name="com.google.android.things" />
 
 
-        <service android:name=".FanService" android:label="My Service">
+        <service android:name=".FanService" android:label="Fan Controller">
             <intent-filter>
-                <action android:name="com.myapp.MyService" />
+                <action android:name="gq.emiliodallatorre.rpi_fan.FanService" />
             </intent-filter>
         </service>
 
@@ -19,6 +19,7 @@
             android:enabled="true"
             android:exported="true"
             android:name="gq.emiliodallatorre.rpi_fan.FanService"
+            android:name="gq.emiliodallatorre.rpi_fan.BootReceiver"
             android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />

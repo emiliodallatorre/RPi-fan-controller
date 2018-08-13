@@ -2,6 +2,7 @@ package gq.emiliodallatorre.rpi_fan
 
 import android.app.Activity
 import android.app.IntentService
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 
@@ -13,12 +14,11 @@ import java.io.BufferedReader
 import java.io.FileReader
 import java.io.IOException
 
-class FanService : IntentService() {
+class FanService : IntentService(FanService::class.simpleName) {
     private lateinit var mGpio: Gpio
     private var temp: Int = 0
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onHandleIntent(workIntent: Intent) {
         val pioService = PeripheralManager.getInstance()
         try {
             mGpio = pioService.openGpio(GPIO_NAME)
